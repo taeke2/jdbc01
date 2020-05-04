@@ -38,7 +38,6 @@ public class JdbcDAO {
 	public ArrayList<JdbcDTO> list() {
 		String sql = "select * from test_jdbc";
 		ArrayList<JdbcDTO> list = (ArrayList<JdbcDTO>)template.query(sql,new BeanPropertyRowMapper<JdbcDTO>(JdbcDTO.class));
-		
 		// query는 여러개의 값을 가져올 때 사용한다.
 		return list;
 		// return (ArrayList<JdbcDTO>)template.query(sql,new BeanPropertyRowMapper<JdbcDTO>(JdbcDTO.class));
@@ -90,7 +89,7 @@ public class JdbcDAO {
 	public JdbcDTO modify(String id) {
 		//String sql = "select * from test_jdbc where id=?";
 		String sql = "select * from test_jdbc where id=" + id;
-		JdbcDTO dto = null;
+		//JdbcDTO dto = null;
 		return template.queryForObject(sql, new BeanPropertyRowMapper<JdbcDTO>(JdbcDTO.class));
 		
 		/*
